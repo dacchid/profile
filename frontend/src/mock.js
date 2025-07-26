@@ -2,161 +2,162 @@
 
 export const executiveProfile = {
   name: "Datta Chidrawar",
-  title: "Cloud, Data & AI Executive | VP/CTO Track",
-  tagline: "Driving cloud-first innovation, real-time data platforms, and scalable transformation in regulated industries.",
+  title: "Transformational Technology Leader | Data, Cloud & AI Professional | VP/CTO Track",
+  tagline: "Driving cloud-first innovation, real-time data platforms, and scalable transformation in regulated industries",
   email: "dattatraya.chidrawar@mail.analytics.hbs.edu",
-  linkedin: "https://linkedin.com/in/dattachidrawar",
-  phone: "+1 (555) 123-4567",
-  profilePhoto: "./images/HeadShot.jpeg", // Professional placeholder
-  
-  about: "Senior technology executive with 15+ years of experience leading cloud modernization, data platforms, and enterprise transformation initiatives. Harvard Business Analytics Program graduate and Rutgers MBA with proven expertise in building scalable, secure platforms for highly regulated environments. Specializes in Azure cloud solutions, real-time analytics, and enterprise integration while driving cross-functional teams toward strategic business outcomes in financial services and regulated industries.",
+  linkedin: "https://www.linkedin.com/in/dattachidrawar/",
+  phone: "+1 (732) 692-7906",
+  profilePhoto: "/images/HeadShot.jpeg",
+  about: `Transformational technology leader with 15+ years of success driving cloud architecture, real-time analytics, and enterprise modernization across financial and regulated sectors. Proven track record in aligning executive vision with scalable digital execution, leading global teams, and optimizing multi-million-dollar portfolios. Harvard-trained and Azure-certified with deep expertise in data platforms, CI/CD, and API strategy. Currently positioned for senior technology leadership roles with CTO trajectory.`,
 
   experience: [
     {
       id: 1,
-      title: "Technical Advisor",
-      company: "University Bank / Midwest Loan Services",
-      period: "2023 - Present",
-      logo: "https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=80&h=80&fit=crop&auto=format&q=80",
+      title: "Technical Advisor – Enterprise & Cloud Architecture",
+      company: "University Bank – Midwest Loan Services",
+      period: "2025 – Present",
+      logo: "/images/icons/ub.jpeg",
       highlights: [
-        "Leading cloud-first digital transformation strategy for regulated financial services with $2B+ AUM",
-        "Architecting secure, compliant data platforms handling $2B+ in loan processing and regulatory reporting",
-        "Driving SOC 2 compliance initiatives and comprehensive data governance frameworks across enterprise"
+        "Defined and executed a cloud-first enterprise data architecture using Azure Data Lake and Databricks, implementing a Medallion framework (Bronze/Silver/Gold) to enhance data reliability and accessibility, and modernizing legacy systems to deliver $300K+ in annual savings.",
+        "Architected and deployed a real-time document management platform (100M+ records) and microservices-based integrations with ICE/Black Knight, reducing reporting time by 60%, IT ticket volume by 40%, and achieving zero audit findings.",
+        "Led platform standardization and automated infrastructure provisioning (ARM, Bicep), decommissioning 50% of legacy workloads, and ensuring SOC 2, encryption, and data retention compliance across all cloud-native solutions."
       ]
     },
     {
       id: 2,
       title: "Data Engineering Leader",
       company: "Holman",
-      period: "2021 - 2023",
-      logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=80&h=80&fit=crop&auto=format&q=80",
+      period: "2013 – 2024",
+      logo: "/images/icons/holman.jpeg",
       highlights: [
-        "Built and scaled real-time analytics platform processing 300M+ daily records across global fleet operations",
-        "Led cross-functional teams across 3 global regions implementing microservices architecture and DevOps practices",
-        "Delivered $2M IoT program integrating fleet management, predictive maintenance, and operational analytics"
+        "Directed a $2M IoT telematics program ingesting 300M+ daily records across 300K vehicles, enabling predictive maintenance and optimizing fleet performance with real-time analytics.",
+        "Led a 20-member engineering team, achieving an 88% long-term retention rate through strategic mentorship and professional growth initiatives.",
+        "Architected and implemented an Azure-based lakehouse with real-time Oracle integration, accelerating data processing by 40% and delivering advanced operational insights.",
+        "Consolidated HR and payroll systems across six subsidiaries through a $5M Workday deployment, integrating 17 connectors and reducing administrative overhead by 25%.",
+        "Executed a 3-year enterprise architecture roadmap, streamlining systems to reduce operational expenditures by 20% and aligning infrastructure with evolving business objectives.",
+        "Migrated legacy platforms to Azure cloud, achieving a 25% cost reduction and improving API availability by 50% through scalable, high-performance architecture.",
+        "Engineered a robust CI/CD pipeline using TeamCity and Octopus Deploy, reducing deployment times by 90% and unifying release processes across 400+ projects.",
+        "Developed a reusable RESTful API boilerplate framework adopted by four departments, cutting API delivery times to under four hours.",
+        "Automated health screening and access control at 40+ locations through real-time Workday-BRIVO integration, saving $2M annually and eliminating employee entry delays.",
+        "Led a 3-month NA–UK system integration using a service-oriented architecture, enabling seamless onboarding of 50K vehicles on day one and securing 200K+ from key clients."
       ]
     },
     {
       id: 3,
-      title: "Senior Cloud Architect",
-      company: "ARI (American Residential Investment)",
-      period: "2019 - 2021",
-      logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=80&h=80&fit=crop&auto=format&q=80",
+      title: "Architect – Corporate Systems",
+      company: "ARI",
+      period: "2006 – 2013",
+      logo: "/images/icons/ari.jpeg",
       highlights: [
-        "Designed enterprise Azure infrastructure supporting 50,000+ users with 99.9% uptime SLA",
-        "Implemented comprehensive CI/CD pipelines reducing deployment time by 75% and improving code quality",
-        "Established vendor strategy and technology roadmap for digital transformation initiatives"
+        "Revamped the vehicle ordering portal using modular architecture and optimized UX design, increasing annual order volume by 30% and accelerating delivery cycles.",
+        "Engineered dynamic dashboards with JavaScript in collaboration with UX teams, enhancing user engagement and interaction by 60%.",
+        "Rebuilt customer-facing portals using HTML5, CSS3, jQuery, and ASP.NET APIs, improving customer satisfaction scores and reducing server load through efficient service architecture.",
+        "Elevated platform accessibility and performance by enforcing WCAG standards and optimizing stored procedures and indexes, boosting query speeds and compliance across web applications."
       ]
     }
+  ],
+
+  education: [
+    {
+      school: "Harvard University",
+      location: "Cambridge, MA",
+      degree: "Harvard Business Analytics Program (HBAP), Digital Transformation"
+    },
+    {
+      school: "Rutgers University – School of Business",
+      location: "Camden, NJ",
+      degree: "Master of Business Administration"
+    },
+    {
+      school: "BAMU University",
+      location: "Aurangabad, MH, India",
+      degree: "Bachelor of Engineering"
+    }
+  ],
+
+  certifications: [
+    { name: "AZ-305 Azure Solutions Architect Expert", issuer: "Microsoft", logo: "/images/icons/azuresolutionsarchitect.svg" },
+    { name: "AZ-104 Microsoft Azure Administrator", issuer: "Microsoft", logo: "/images/icons/azureadminassociate.svg" },
+    { name: "DP-900 Azure Data Fundamentals", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" },
+    { name: "AZ-900 Azure Fundamentals", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" },
+    { name: "Lean Six Sigma Green Belt", issuer: "", logo: "/images/icons/asq.svg" },
+    { name: "Team Software Process (TSP) & Personal Software Process (PSP)", issuer: "", logo: "/images/icons/agile.svg" },
+    { name: "Microsoft Certified Professional", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" }
   ],
 
   competencies: {
     "Cloud & Data Platforms": {
-      icon: "cloud",
+      icon: "/images/icons/microsoftazure.svg",
       skills: [
-        { name: "Microsoft Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-        { name: "Azure Databricks", icon: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Azure Synapse", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-        { name: "Azure Data Factory", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-        { name: "Power BI", icon: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Apache Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" }
+        { name: "Azure Data Lake", icon: "/images/icons/microsoftazure.svg" },
+        { name: "Azure Databricks", icon: "/images/icons/azuredatabricks.svg" },
+        { name: "Azure Synapse", icon: "/images/icons/azuresynapse.png" },
+        { name: "Azure Data Factory", icon: "/images/icons/azuredatafactory.png" },
+        { name: "Power BI", icon: "/images/icons/powerbi.svg" },
+        { name: "Databricks", icon: "/images/icons/azuredatabricks.svg" },
+        { name: "Oracle", icon: "/images/icons/oracle.svg" },
+        { name: "SQL Server", icon: "/images/icons/sqlserver.svg" },
+        { name: "MySQL", icon: "/images/icons/mysql.svg" },
+        { name: "NoSQL", icon: "/images/icons/nosql.svg" }
       ]
     },
     "Engineering & Integration": {
-      icon: "database",
+      icon: "/images/icons/docker.svg",
       skills: [
-        { name: "Microservices Architecture", icon: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "CI/CD Pipelines", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
-        { name: "REST APIs", icon: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Docker & Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "DevOps Practices", icon: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Agile Methodologies", icon: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=40&h=40&fit=crop&auto=format&q=80" }
+        { name: "Microservices Architecture", icon: "/images/icons/microservices.svg" },
+        { name: "CI/CD Pipeline Automation", icon: "/images/icons/cicd.svg" },
+        { name: "REST APIs", icon: "/images/icons/postman.svg" },
+        { name: "Docker", icon: "/images/icons/docker.svg" },
+        { name: "Kubernetes", icon: "/images/icons/kubernetes.svg" },
+        { name: "Azure DevOps", icon: "/images/icons/azuredevops.svg" },
+        { name: "Event-Driven Architecture", icon: "/images/icons/agile.svg" },
+        { name: "API Management", icon: "/images/icons/microsoftazure.svg" },
+        { name: "Kafka", icon: "/images/icons/apachekafka.svg" },
+        { name: "RabbitMQ", icon: "/images/icons/rabbitmq.svg" }
       ]
     },
     "Leadership & Strategy": {
-      icon: "users",
+      icon: "/images/icons/globalteambuilding.png",
       skills: [
-        { name: "Global Team Building", icon: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Cross-Functional Alignment", icon: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Vendor Management", icon: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Digital Transformation", icon: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Technology Roadmapping", icon: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Executive Stakeholder Management", icon: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=40&h=40&fit=crop&auto=format&q=80" }
+        { name: "Digital Transformation Strategy", icon: "/images/icons/digitaltransformation.png" },
+        { name: "Platform Roadmapping", icon: "/images/icons/technologyroadmapping.png" },
+        { name: "Vendor Management", icon: "/images/icons/vendormanagement.png" },
+        { name: "Team Leadership", icon: "/images/icons/globalteambuilding.png" },
+        { name: "Stakeholder Management", icon: "/images/icons/executivestakeholdermanagement.png" }
       ]
     },
     "Governance & Compliance": {
-      icon: "shield",
+      icon: "/images/icons/soc2compliance.png",
       skills: [
-        { name: "SOC 2 Compliance", icon: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Data Security & Privacy", icon: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "KPI/OKR Alignment", icon: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Risk Management", icon: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Regulatory Compliance", icon: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=40&h=40&fit=crop&auto=format&q=80" },
-        { name: "Enterprise Architecture", icon: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=40&h=40&fit=crop&auto=format&q=80" }
+        { name: "SOC 2 Compliance", icon: "/images/icons/soc2compliance.png" },
+        { name: "Data Security & Privacy", icon: "/images/icons/datasecurityprivacy.png" },
+        { name: "Risk Management", icon: "/images/icons/riskmanagement.png" },
+        { name: "Regulatory Compliance", icon: "/images/icons/regulatorycompliance.png" },
+        { name: "Audit Trails", icon: "/images/icons/soc2compliance.png" }
       ]
     }
   },
 
-  certifications: [
-    {
-      name: "Harvard Business Analytics Program",
-      issuer: "Harvard Business School",
-      type: "education",
-      year: "2022",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop&auto=format&q=80"
-    },
-    {
-      name: "MBA in Technology Management",
-      issuer: "Rutgers Business School",
-      type: "education",
-      year: "2018",
-      logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=60&h=60&fit=crop&auto=format&q=80"
-    },
-    {
-      name: "Azure Solutions Architect Expert",
-      issuer: "Microsoft",
-      code: "AZ-305",
-      type: "certification",
-      year: "2023",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
-    },
-    {
-      name: "Azure Administrator Associate",
-      issuer: "Microsoft",
-      code: "AZ-104",
-      type: "certification", 
-      year: "2022",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
-    },
-    {
-      name: "Lean Six Sigma Black Belt",
-      issuer: "ASQ",
-      type: "certification",
-      year: "2020",
-      logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=60&h=60&fit=crop&auto=format&q=80"
-    }
-  ],
-
   leadership: [
     {
-      title: "Enterprise Transformation",
-      description: "Led digital transformation initiatives across Fortune 500 companies, delivering measurable ROI through cloud-first strategies and data-driven decision making.",
-      icon: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=80&h=80&fit=crop&auto=format&q=80"
+      title: "Digital Transformation & Cloud Modernization",
+      description: "Drove enterprise-wide digital transformation and cloud modernization, delivering $300K+ in annual savings, decommissioning 50% of legacy systems, and accelerating data-driven decision making.",
+      icon: "/images/icons/leadership_cloudsync.svg"
     },
     {
-      title: "Global Team Leadership",
-      description: "Built and managed cross-functional teams across 3 continents, fostering innovation culture and achieving 95%+ team satisfaction scores.",
-      icon: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=80&h=80&fit=crop&auto=format&q=80"
+      title: "High-Performance Team Leadership",
+      description: "Built, mentored, and led global engineering teams (20+ members), achieving 88%+ retention, fostering a culture of innovation, and driving leadership succession across multi-year programs.",
+      icon: "/images/icons/leadership_team.svg"
     },
     {
-      title: "Strategic Technology Vision",
-      description: "Developed 3-5 year technology roadmaps aligning business objectives with emerging technologies, resulting in competitive advantages and cost optimization.",
-      icon: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80&h=80&fit=crop&auto=format&q=80"
+      title: "Strategic Architecture & Business Alignment",
+      description: "Developed and executed multi-year enterprise architecture roadmaps, aligning technology with business strategy, reducing operational costs by 20%, and enabling scalable, secure platforms for regulated industries.",
+      icon: "/images/icons/leadership_architecture.svg"
     },
     {
-      title: "Regulatory Excellence",
-      description: "Championed compliance initiatives in highly regulated industries, ensuring 100% audit success rates and establishing best-practice frameworks.",
-      icon: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=80&h=80&fit=crop&auto=format&q=80"
+      title: "Compliance, Security & Risk Management",
+      description: "Championed SOC 2, data privacy, and risk management initiatives, ensuring regulatory compliance, zero audit findings, and robust security posture across cloud and data platforms.",
+      icon: "/images/icons/leadership_compliance.svg"
     }
   ]
 };

@@ -25,6 +25,12 @@ import {
 import { executiveProfile } from './mock';
 import ContactForm from './ContactForm';
 
+const SectionDivider = () => (
+  <svg className="section-divider" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#f1f5f9" d="M0,80 C480,0 960,160 1440,80 L1440,0 L0,0 Z" />
+  </svg>
+);
+
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -39,7 +45,7 @@ const HomePage = () => {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
         }
@@ -100,25 +106,31 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white relative">
+      <div className="brand-banner" />
       {/* Navigation Header */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="font-bold text-xl" style={{color: 'var(--navy-primary)'}}>DC</div>
-            <div className="hidden md:flex space-x-8">
-              {['About', 'Experience', 'Skills', 'Leadership', 'Certifications', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    activeSection === item.toLowerCase() ? 'text-blue-600' : 'text-slate-600'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
+      <nav className="fixed top-0 w-full z-50 bg-white/95 shadow-sm border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+          {/* Simple Monogram Logo */}
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-navy-900 text-white font-bold text-lg w-10 h-10 flex items-center justify-center shadow-sm">DC</span>
+            <span className="hidden sm:inline text-lg font-semibold text-navy-900 tracking-tight">Datta Chidrawar</span>
+          </div>
+          {/* Minimal Navigation Links */}
+          <div className="flex space-x-6">
+            {['About', 'Experience', 'Skills', 'Leadership', 'Certifications', 'Contact'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className={`relative text-base font-medium px-1 py-0.5 text-slate-700 hover:text-navy-900 transition-colors duration-150 ${activeSection === item.toLowerCase() ? 'font-bold text-navy-900' : ''}`}
+                style={{ background: 'none', border: 'none' }}
+              >
+                {item}
+                {activeSection === item.toLowerCase() && (
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-navy-900 rounded-full" style={{opacity: 0.7}} />
+                )}
+              </button>
+            ))}
           </div>
         </div>
       </nav>
@@ -185,7 +197,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* About Section */}
       <section id="about" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-4xl mx-auto">
@@ -199,7 +211,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* Experience Section with Enhanced Cards */}
       <section id="experience" className="py-20 px-6 animate-on-scroll" style={{backgroundColor: 'var(--slate-light)'}}>
         <div className="max-w-6xl mx-auto">
@@ -242,7 +254,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* Skills Section with Professional Icons */}
       <section id="skills" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-6xl mx-auto">
@@ -271,7 +283,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* Leadership Section with Carousel */}
       <section id="leadership" className="py-20 px-6 animate-on-scroll" style={{backgroundColor: 'var(--slate-light)'}}>
         <div className="max-w-6xl mx-auto">
@@ -287,7 +299,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* Certifications Section with Logos */}
       <section id="certifications" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-4xl mx-auto">
@@ -313,7 +325,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      <SectionDivider />
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 animate-on-scroll" style={{backgroundColor: 'var(--navy-primary)'}}>
         <div className="max-w-4xl mx-auto">

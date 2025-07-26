@@ -1,0 +1,47 @@
+List of all icons to be downloaded and stored in this folder:
+
+# Cloud & Data Platforms
+microsoftazure.svg
+azuredatabricks.svg
+azuresynapse.png
+azuredatafactory.png
+powerbi.svg
+apachekafka.svg
+
+# Engineering & Integration
+docker.svg
+microservices.svg
+cicd.svg
+postman.svg
+kubernetes.svg
+azuredevops.svg
+agile.svg
+
+# Leadership & Strategy
+globalteambuilding.png
+crossfunctionalalignment.png
+vendormanagement.png
+digitaltransformation.png
+technologyroadmapping.png
+executivestakeholdermanagement.png
+
+# Governance & Compliance
+soc2compliance.png
+datasecurityprivacy.png
+kpiokralignment.png
+riskmanagement.png
+regulatorycompliance.png
+enterprisearchitecture.png
+
+# Certifications
+harvard.svg
+rutgers.svg
+azuresolutionsarchitect.svg
+azureadminassociate.svg
+asq.svg
+
+# Leadership
+leadership_digitaltransformation.svg
+leadership_globalteam.svg
+leadership_vision.svg
+leadership_regulatory.svg
