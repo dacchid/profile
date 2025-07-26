@@ -28,6 +28,24 @@ const HomePage = () => {
   useEffect(() => {
     setIsVisible(true);
     
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach(section => observer.observe(section));
+
     const handleScroll = () => {
       const sections = ['hero', 'about', 'experience', 'competencies', 'certifications', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -41,7 +59,11 @@ const HomePage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (sectionId) => {
@@ -56,6 +78,21 @@ const HomePage = () => {
     "Engineering & Integration": <Database className="w-6 h-6" />,
     "Leadership & Strategy": <Users className="w-6 h-6" />,
     "Governance & Compliance": <Shield className="w-6 h-6" />
+  };
+
+  // Generate particles for background effect
+  const generateParticles = () => {
+    return Array.from({ length: 50 }, (_, i) => (
+      <div
+        key={i}
+        className="particle"
+        style={{
+          left: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 15}s`,
+          animationDuration: `${15 + Math.random() * 10}s`
+        }}
+      />
+    ));
   };
 
   return (
@@ -82,40 +119,51 @@ const HomePage = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="hero" className="pt-24 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with Animated Background */}
+      <section id="hero" className="relative pt-24 pb-20 px-6 min-h-screen flex items-center overflow-hidden">
+        {/* Animated Digital Background */}
+        <div className="hero-background">
+          <div className="digital-particles">
+            {generateParticles()}
+          </div>
+        </div>
+        
+        {/* Dark Overlay for Text Legibility */}
+        <div className="hero-overlay"></div>
+        
+        {/* Content */}
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className={`text-center transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
             <div className="mb-8">
-              <h1 className="text-5xl md:text-7xl font-bold text-navy-900 mb-4 tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight fade-in-up">
                 {executiveProfile.name}
               </h1>
-              <p className="text-2xl md:text-3xl text-slate-600 font-light mb-6">
+              <p className="text-2xl md:text-3xl text-slate-200 font-light mb-6 fade-in-up" style={{animationDelay: '0.2s'}}>
                 {executiveProfile.title}
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-tech-blue-400 to-tech-blue-600 mx-auto mb-8"></div>
-              <p className="text-lg md:text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
+              <div className="w-24 h-1 bg-gradient-to-r from-tech-blue-400 to-tech-blue-600 mx-auto mb-8 fade-in-up" style={{animationDelay: '0.4s'}}></div>
+              <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed fade-in-up" style={{animationDelay: '0.6s'}}>
                 {executiveProfile.tagline}
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up" style={{animationDelay: '0.8s'}}>
               <Button 
                 size="lg" 
-                className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 text-lg font-medium"
+                className="bg-tech-blue-600 hover:bg-tech-blue-700 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 onClick={() => scrollToSection('contact')}
               >
                 Let's Connect
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
               <div className="flex space-x-4">
-                <Button variant="outline" size="lg" className="border-slate-300 hover:border-navy-400">
+                <Button variant="outline" size="lg" className="border-slate-400 text-slate-300 hover:text-white hover:border-white hover:bg-white/10 backdrop-blur-sm">
                   <Linkedin className="w-5 h-5 mr-2" />
                   LinkedIn
                 </Button>
-                <Button variant="outline" size="lg" className="border-slate-300 hover:border-navy-400">
+                <Button variant="outline" size="lg" className="border-slate-400 text-slate-300 hover:text-white hover:border-white hover:bg-white/10 backdrop-blur-sm">
                   <Mail className="w-5 h-5 mr-2" />
                   Email
                 </Button>
@@ -126,7 +174,7 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white">
+      <section id="about" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-12">About Me</h2>
           <Card className="border-0 shadow-lg">
@@ -140,12 +188,12 @@ const HomePage = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-slate-50">
+      <section id="experience" className="py-20 px-6 bg-slate-50 animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-16">Leadership Experience</h2>
           <div className="space-y-8">
             {executiveProfile.experience.map((role, index) => (
-              <Card key={role.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card key={role.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-on-scroll" style={{animationDelay: `${index * 0.2}s`}}>
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                     <div>
@@ -176,12 +224,12 @@ const HomePage = () => {
       </section>
 
       {/* Competencies Section */}
-      <section id="competencies" className="py-20 px-6 bg-white">
+      <section id="competencies" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-16">Core Competencies</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(executiveProfile.competencies).map(([category, skills]) => (
-              <Card key={category} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            {Object.entries(executiveProfile.competencies).map(([category, skills], index) => (
+              <Card key={category} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-on-scroll" style={{animationDelay: `${index * 0.15}s`}}>
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center text-xl font-bold text-navy-900">
                     {competencyIcons[category]}
@@ -190,9 +238,9 @@ const HomePage = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {skills.map((skill, index) => (
+                    {skills.map((skill, skillIndex) => (
                       <Badge 
-                        key={index} 
+                        key={skillIndex} 
                         variant="secondary" 
                         className="bg-tech-blue-50 text-tech-blue-700 hover:bg-tech-blue-100 px-3 py-1"
                       >
@@ -208,12 +256,12 @@ const HomePage = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-20 px-6 bg-slate-50">
+      <section id="certifications" className="py-20 px-6 bg-slate-50 animate-on-scroll">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-navy-900 text-center mb-16">Certifications & Education</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {executiveProfile.certifications.map((cert, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-on-scroll" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center">
@@ -237,7 +285,7 @@ const HomePage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-navy-900">
+      <section id="contact" className="py-20 px-6 bg-navy-900 animate-on-scroll">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-white text-center mb-4">Let's Connect</h2>
           <p className="text-xl text-slate-300 text-center mb-12">
