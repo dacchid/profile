@@ -1,13 +1,13 @@
-// Mock data for Dattatraya Chidrawar's executive portfolio
+// Mock data for Datta Chidrawar's executive portfolio
 
 export const executiveProfile = {
-  name: "Dattatraya Chidrawar",
-  title: "Cloud & Data Executive | VP/CTO Track",
+  name: "Datta Chidrawar",
+  title: "Cloud, Data & AI Executive | VP/CTO Track",
   tagline: "Driving cloud-first innovation, real-time data platforms, and scalable transformation in regulated industries.",
-  email: "dattatraya.c@email.com",
+  email: "dattatraya.chidrawar@mail.analytics.hbs.edu",
   linkedin: "https://linkedin.com/in/dattachidrawar",
   phone: "+1 (555) 123-4567",
-  profilePhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80", // Professional placeholder
+  profilePhoto: "./images/HeadShot.jpeg", // Professional placeholder
   
   about: "Senior technology executive with 15+ years of experience leading cloud modernization, data platforms, and enterprise transformation initiatives. Harvard Business Analytics Program graduate and Rutgers MBA with proven expertise in building scalable, secure platforms for highly regulated environments. Specializes in Azure cloud solutions, real-time analytics, and enterprise integration while driving cross-functional teams toward strategic business outcomes in financial services and regulated industries.",
 
