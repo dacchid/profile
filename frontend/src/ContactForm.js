@@ -6,7 +6,7 @@ import { Textarea } from './components/ui/textarea';
 import { Label } from './components/ui/label';
 import { useToast } from './hooks/use-toast';
 import { Toaster } from './components/ui/toaster';
-import { Mail, User, MessageSquare, Send } from 'lucide-react';
+import { Mail, User, MessageSquare, Send, Briefcase } from 'lucide-react';
 import { submitContactForm } from './mock';
 
 const ContactForm = () => {
@@ -63,21 +63,21 @@ const ContactForm = () => {
 
   return (
     <>
-      <Card className="border-0 shadow-2xl bg-white">
-        <CardHeader className="text-center pb-6">
-          <CardTitle className="text-2xl font-bold text-navy-900 flex items-center justify-center">
-            <Mail className="w-6 h-6 mr-3 text-tech-blue-600" />
+      <div className="executive-card">
+        <div className="executive-card-header text-center">
+          <div className="text-2xl font-bold flex items-center justify-center" style={{color: 'var(--navy-primary)'}}>
+            <Mail className="w-6 h-6 mr-3" style={{color: 'var(--tech-blue)'}} />
             Get In Touch
-          </CardTitle>
-          <p className="text-slate-600 mt-2">
+          </div>
+          <p className="mt-2" style={{color: 'var(--text-light)'}}>
             Let's discuss your technology challenges and transformation opportunities
           </p>
-        </CardHeader>
-        <CardContent className="p-8">
+        </div>
+        <div className="executive-card-content">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-slate-700 flex items-center">
+                <Label htmlFor="name" className="text-sm font-medium flex items-center" style={{color: 'var(--text-dark)'}}>
                   <User className="w-4 h-4 mr-2" />
                   Full Name *
                 </Label>
@@ -87,13 +87,14 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="border-slate-300 focus:border-tech-blue-500 focus:ring-tech-blue-500"
+                  className="border-slate-300"
+                  style={{'--tw-ring-color': 'var(--tech-blue)'}}
                   placeholder="Your full name"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-slate-700 flex items-center">
+                <Label htmlFor="email" className="text-sm font-medium flex items-center" style={{color: 'var(--text-dark)'}}>
                   <Mail className="w-4 h-4 mr-2" />
                   Email Address *
                 </Label>
@@ -104,14 +105,15 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="border-slate-300 focus:border-tech-blue-500 focus:ring-tech-blue-500"
+                  className="border-slate-300"
                   placeholder="your.email@company.com"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="company" className="text-sm font-medium text-slate-700">
+              <Label htmlFor="company" className="text-sm font-medium flex items-center" style={{color: 'var(--text-dark)'}}>
+                <Briefcase className="w-4 h-4 mr-2" />
                 Company/Organization
               </Label>
               <Input
@@ -119,13 +121,13 @@ const ContactForm = () => {
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="border-slate-300 focus:border-tech-blue-500 focus:ring-tech-blue-500"
+                className="border-slate-300"
                 placeholder="Your company name"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" className="text-sm font-medium text-slate-700 flex items-center">
+              <Label htmlFor="message" className="text-sm font-medium flex items-center" style={{color: 'var(--text-dark)'}}>
                 <MessageSquare className="w-4 h-4 mr-2" />
                 Message *
               </Label>
@@ -136,7 +138,7 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 required
                 rows={5}
-                className="border-slate-300 focus:border-tech-blue-500 focus:ring-tech-blue-500 resize-none"
+                className="border-slate-300 resize-none"
                 placeholder="Tell me about your project, challenges, or how I can help..."
               />
             </div>
@@ -144,7 +146,7 @@ const ContactForm = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-tech-blue-600 hover:bg-tech-blue-700 text-white py-3 text-lg font-medium transition-colors duration-200"
+              className="w-full cta-primary"
             >
               {isSubmitting ? (
                 <>
@@ -159,8 +161,8 @@ const ContactForm = () => {
               )}
             </Button>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
       <Toaster />
     </>
   );
