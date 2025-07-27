@@ -58,82 +58,77 @@ export const executiveProfile = {
   ],
 
   education: [
-    {
-      school: "Harvard University",
-      location: "Cambridge, MA",
-      degree: "Harvard Business Analytics Program (HBAP), Digital Transformation"
-    },
-    {
-      school: "Rutgers University – School of Business",
-      location: "Camden, NJ",
-      degree: "Master of Business Administration"
-    },
-    {
-      school: "BAMU University",
-      location: "Aurangabad, MH, India",
-      degree: "Bachelor of Engineering"
-    }
+    { school: "Harvard University", location: "Cambridge, MA", degree: "Harvard Business Analytics Program (HBAP)", year: "2020" },
+    { school: "Rutgers University – School of Business", location: "Camden, NJ", degree: "Master of Business Administration", year: "2016" },
+    { school: "BAMU University", location: "Aurangabad, MH, India", degree: "Bachelor of Engineering", year: "1998" }
   ],
 
   certifications: [
-    { name: "AZ-305 Azure Solutions Architect Expert", issuer: "Microsoft", logo: "/images/icons/azuresolutionsarchitect.svg" },
-    { name: "AZ-104 Microsoft Azure Administrator", issuer: "Microsoft", logo: "/images/icons/azureadminassociate.svg" },
-    { name: "DP-900 Azure Data Fundamentals", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" },
-    { name: "AZ-900 Azure Fundamentals", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" },
-    { name: "Lean Six Sigma Green Belt", issuer: "", logo: "/images/icons/asq.svg" },
-    { name: "Team Software Process (TSP) & Personal Software Process (PSP)", issuer: "", logo: "/images/icons/agile.svg" },
-    { name: "Microsoft Certified Professional", issuer: "Microsoft", logo: "/images/icons/microsoftazure.svg" }
+    { name: "Harvard Business Analytics Program (HBAP)", issuer: "Harvard University", year: "2020", logo: "/images/icons/harvard.png" },
+    { name: "AZ-305 Azure Solutions Architect Expert", issuer: "Microsoft", year: "2025", logo: "/images/icons/azuresolutionsarchitect.svg" },
+    { name: "AZ-104 Microsoft Azure Administrator", issuer: "Microsoft", year: "2025", logo: "/images/icons/azureadminassociate.svg" },
+    { name: "DP-900 Azure Data Fundamentals", issuer: "Microsoft", year: "2021", logo: "/images/icons/microsoftazure.svg" },
+    { name: "AZ-900 Azure Fundamentals", issuer: "Microsoft", year: "2021", logo: "/images/icons/microsoftazure.svg" },
+    { name: "Lean Six Sigma Green Belt", issuer: "", year: "2016", logo: "/images/icons/asq.png" },
+    { name: "Team Software Process (TSP) & Personal Software Process (PSP)", issuer: "", year: "", logo: "/images/icons/agile.svg" },
+    { name: "Microsoft Certified Professional", issuer: "Microsoft", year: "2012", logo: "/images/icons/microsoftazure.svg" }
   ],
 
   competencies: {
-    "Cloud & Data Platforms": {
-      icon: "/images/icons/microsoftazure.svg",
-      skills: [
-        { name: "Azure Data Lake", icon: "/images/icons/microsoftazure.svg" },
-        { name: "Azure Databricks", icon: "/images/icons/azuredatabricks.svg" },
-        { name: "Azure Synapse", icon: "/images/icons/azuresynapse.png" },
-        { name: "Azure Data Factory", icon: "/images/icons/azuredatafactory.png" },
-        { name: "Power BI", icon: "/images/icons/powerbi.svg" },
-        { name: "Databricks", icon: "/images/icons/azuredatabricks.svg" },
-        { name: "Oracle", icon: "/images/icons/oracle.svg" },
-        { name: "SQL Server", icon: "/images/icons/sqlserver.svg" },
-        { name: "MySQL", icon: "/images/icons/mysql.svg" },
-        { name: "NoSQL", icon: "/images/icons/nosql.svg" }
-      ]
-    },
-    "Engineering & Integration": {
-      icon: "/images/icons/docker.svg",
-      skills: [
-        { name: "Microservices Architecture", icon: "/images/icons/microservices.svg" },
-        { name: "CI/CD Pipeline Automation", icon: "/images/icons/cicd.svg" },
-        { name: "REST APIs", icon: "/images/icons/postman.svg" },
-        { name: "Docker", icon: "/images/icons/docker.svg" },
-        { name: "Kubernetes", icon: "/images/icons/kubernetes.svg" },
-        { name: "Azure DevOps", icon: "/images/icons/azuredevops.svg" },
-        { name: "Event-Driven Architecture", icon: "/images/icons/agile.svg" },
-        { name: "API Management", icon: "/images/icons/microsoftazure.svg" },
-        { name: "Kafka", icon: "/images/icons/apachekafka.svg" },
-        { name: "RabbitMQ", icon: "/images/icons/rabbitmq.svg" }
-      ]
-    },
-    "Leadership & Strategy": {
+    "Executive Leadership & Strategy": {
       icon: "/images/icons/globalteambuilding.png",
       skills: [
-        { name: "Digital Transformation Strategy", icon: "/images/icons/digitaltransformation.png" },
-        { name: "Platform Roadmapping", icon: "/images/icons/technologyroadmapping.png" },
-        { name: "Vendor Management", icon: "/images/icons/vendormanagement.png" },
-        { name: "Team Leadership", icon: "/images/icons/globalteambuilding.png" },
-        { name: "Stakeholder Management", icon: "/images/icons/executivestakeholdermanagement.png" }
+        { name: "Visionary Technology Leadership", icon: "/images/icons/leadership_architecture.svg" },
+        { name: "Digital & Business Transformation", icon: "/images/icons/digitaltransformation.png" },
+        { name: "Enterprise Architecture & Roadmapping", icon: "/images/icons/technologyroadmapping.png" },
+        { name: "Innovation Management", icon: "/images/icons/leadership_cloudsync.svg" },
+        { name: "Cross-Functional Team Leadership", icon: "/images/icons/globalteambuilding.png" },
+        { name: "Stakeholder & Board Engagement", icon: "/images/icons/executivestakeholdermanagement.png" },
+        { name: "Vendor & Partner Strategy", icon: "/images/icons/vendormanagement.png" },
+        { name: "Change & Risk Management", icon: "/images/icons/riskmanagement.png" }
       ]
     },
-    "Governance & Compliance": {
+    "Cloud, Data & Analytics Platforms": {
+      icon: "/images/icons/microsoftazure.svg",
+      skills: [
+        { name: "Cloud Modernization (Azure, AWS)", icon: "/images/icons/microsoftazure.svg" },
+        { name: "Data Lake, Synapse & Databricks", icon: "/images/icons/azuresynapse.png" },
+        { name: "Real-Time Data Engineering & IoT", icon: "/images/icons/apachekafka.svg" },
+        { name: "Business Intelligence (Power BI, Tableau)", icon: "/images/icons/powerbi.svg" },
+        { name: "Data Governance & Compliance", icon: "/images/icons/soc2compliance.png" },
+        { name: "Oracle, SQL Server, MySQL, NoSQL", icon: "/images/icons/sqlserver.png" }
+      ]
+    },
+    "Engineering, DevOps & Integration": {
+      icon: "/images/icons/docker.svg",
+      skills: [
+        { name: "Microservices & Event-Driven Architecture", icon: "/images/icons/microservices.svg" },
+        { name: "API Strategy (REST, GraphQL, gRPC)", icon: "/images/icons/postman.svg" },
+        { name: "CI/CD & DevOps Automation", icon: "/images/icons/azuredevops.svg" },
+        { name: "Infrastructure as Code (ARM, Bicep, YAML)", icon: "/images/icons/cicd.svg" },
+        { name: "Containerization (Docker, Kubernetes, ACA)", icon: "/images/icons/docker.svg" },
+        { name: "Messaging (Kafka, RabbitMQ, Service Bus)", icon: "/images/icons/apachekafka.svg" }
+      ]
+    },
+    "Security, Compliance & Operations": {
       icon: "/images/icons/soc2compliance.png",
       skills: [
-        { name: "SOC 2 Compliance", icon: "/images/icons/soc2compliance.png" },
-        { name: "Data Security & Privacy", icon: "/images/icons/datasecurityprivacy.png" },
-        { name: "Risk Management", icon: "/images/icons/riskmanagement.png" },
-        { name: "Regulatory Compliance", icon: "/images/icons/regulatorycompliance.png" },
-        { name: "Audit Trails", icon: "/images/icons/soc2compliance.png" }
+        { name: "SOC 2, SOX, Regulatory Compliance", icon: "/images/icons/soc2compliance.png" },
+        { name: "Data Security & Privacy (Encryption, OAuth, SAML)", icon: "/images/icons/datasecurityprivacy.png" },
+        { name: "Risk & Change Management", icon: "/images/icons/riskmanagement.png" },
+        { name: "Monitoring & Observability (App Insights, Prometheus, Grafana)", icon: "/images/icons/leadership_compliance.svg" },
+        { name: "Business Continuity & Disaster Recovery", icon: "/images/icons/leadership_compliance.svg" }
+      ]
+    },
+    "AI, ML & Advanced Analytics": {
+      icon: "/images/icons/leadership_cloudsync.svg",
+      skills: [
+        { name: "AI Strategy & Executive Leadership", icon: "/images/icons/leadership_cloudsync.svg" },
+        { name: "Applied Machine Learning & Predictive Analytics", icon: "/images/icons/analytics.png" },
+        { name: "Generative AI (LLMs, GPT, Copilots)", icon: "/images/icons/genai.png" },
+        { name: "Data Science & Advanced Analytics", icon: "/images/icons/powerbi.svg" },
+        { name: "AI/ML Platform Integration (Azure AI, Databricks ML, AWS Sagemaker)", icon: "/images/icons/microsoftazure.svg" },
+        { name: "Responsible AI, Ethics & Governance", icon: "/images/icons/soc2compliance.png" }
       ]
     }
   },
@@ -158,6 +153,31 @@ export const executiveProfile = {
       title: "Compliance, Security & Risk Management",
       description: "Championed SOC 2, data privacy, and risk management initiatives, ensuring regulatory compliance, zero audit findings, and robust security posture across cloud and data platforms.",
       icon: "/images/icons/leadership_compliance.svg"
+    }
+  ],
+
+  portfolio: [
+    {
+      title: "Cloud-Native Data Lakehouse Architecture",
+      image: "/images/portfolio/datalakehouse-arch.svg",
+      description: "Designed and implemented a scalable Azure-based data lakehouse using Data Lake, Synapse, and Databricks. Enabled real-time analytics, governed data zones (Bronze/Silver/Gold), and seamless integration with enterprise systems.",
+      highlights: [
+        "Medallion architecture for reliability and compliance",
+        "Real-time ingestion and analytics (Databricks, Synapse)",
+        "Automated provisioning with Bicep/ARM",
+        "SOC 2, encryption, and retention compliance"
+      ]
+    },
+    {
+      title: "Microservices Integration Platform",
+      image: "/images/portfolio/microservices-arch.svg",
+      description: "Architected a microservices platform for real-time document management and third-party integrations (ICE/Black Knight). Reduced IT tickets by 40% and achieved zero audit findings.",
+      highlights: [
+        "Event-driven microservices (Azure Service Bus, Functions)",
+        "API-first design and secure partner integration",
+        "Automated CI/CD and infrastructure as code",
+        "Legacy system modernization and cost savings"
+      ]
     }
   ]
 };

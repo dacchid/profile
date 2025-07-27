@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
 import { Button } from './components/ui/button';
 import { Badge } from './components/ui/badge';
@@ -13,6 +13,7 @@ import {
   Mail, 
   Linkedin, 
   Phone,
+  ChevronLeft,
   ChevronRight,
   Building,
   Calendar,
@@ -34,6 +35,9 @@ const SectionDivider = () => (
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [portfolioIndex, setPortfolioIndex] = useState(0);
+  const portfolioRef = useRef(null);
+  const totalPortfolio = executiveProfile.portfolio.length;
 
   useEffect(() => {
     setIsVisible(true);
@@ -57,15 +61,16 @@ const HomePage = () => {
     sections.forEach(section => observer.observe(section));
 
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'experience', 'skills', 'leadership', 'certifications', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'skills', 'leadership', 'certifications', 'education', 'contact'];
       const scrollPosition = window.scrollY + 100;
-      
+      let currentSection = 'hero';
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element && scrollPosition >= element.offsetTop) {
-          setActiveSection(section);
+          currentSection = section;
         }
       }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -105,6 +110,24 @@ const HomePage = () => {
     ));
   };
 
+  const handlePortfolioNav = (dir) => {
+    setPortfolioIndex((prev) => {
+      let next = prev + dir;
+      if (next < 0) next = 0;
+      if (next > totalPortfolio - 1) next = totalPortfolio - 1;
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    if (portfolioRef.current) {
+      portfolioRef.current.scrollTo({
+        left: portfolioRef.current.offsetWidth * portfolioIndex,
+        behavior: 'smooth',
+      });
+    }
+  }, [portfolioIndex]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white relative">
       <div className="brand-banner" />
@@ -112,13 +135,13 @@ const HomePage = () => {
       <nav className="fixed top-0 w-full z-50 bg-white/95 shadow-sm border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
           {/* Simple Monogram Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection('hero')} tabIndex={0} role="button" aria-label="Go to main page" onKeyPress={e => { if (e.key === 'Enter' || e.key === ' ') scrollToSection('hero'); }}>
             <span className="rounded-full bg-navy-900 text-white font-bold text-lg w-10 h-10 flex items-center justify-center shadow-sm">DC</span>
             <span className="hidden sm:inline text-lg font-semibold text-navy-900 tracking-tight">Datta Chidrawar</span>
           </div>
           {/* Minimal Navigation Links */}
           <div className="flex space-x-6">
-            {['About', 'Experience', 'Skills', 'Leadership', 'Certifications', 'Contact'].map((item) => (
+            {['About', 'Experience', 'Skills', 'Leadership', 'Portfolio', 'Certifications', 'Education', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -184,11 +207,29 @@ const HomePage = () => {
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
               <div className="flex space-x-4">
-                <Button variant="outline" size="lg" className="cta-secondary">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="cta-secondary text-white border-white hover:bg-tech-blue-700 hover:text-white"
+                  style={{borderWidth: 2, color: '#fff', borderColor: '#fff', background: 'rgba(255,255,255,0.08)'}}
+                  as="a"
+                  href="https://www.linkedin.com/in/dattachidrawar/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
                   <Linkedin className="w-5 h-5 mr-2" />
                   LinkedIn
                 </Button>
-                <Button variant="outline" size="lg" className="cta-secondary">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="cta-secondary text-white border-white hover:bg-tech-blue-700 hover:text-white"
+                  style={{borderWidth: 2, color: '#fff', borderColor: '#fff', background: 'rgba(255,255,255,0.08)'}}
+                  as="a"
+                  href="/resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
                   <Download className="w-5 h-5 mr-2" />
                   Resume
                 </Button>
@@ -259,39 +300,38 @@ const HomePage = () => {
       <section id="skills" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16" style={{color: 'var(--navy-primary)'}}>Core Competencies</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="competencies-modern-grid">
             {Object.entries(executiveProfile.competencies).map(([category, data], index) => (
-              <div key={category} className="executive-card animate-on-scroll" style={{animationDelay: `${index * 0.15}s`}}>
-                <div className="executive-card-header">
-                  <div className="flex items-center text-xl font-bold" style={{color: 'var(--navy-primary)'}}>
-                    {competencyIcons[category]}
-                    <span className="ml-3">{category}</span>
-                  </div>
+              <div key={category} className="competency-modern-card animate-on-scroll" style={{animationDelay: `${index * 0.12}s`}}>
+                <div className="competency-modern-header">
+                  <div className="competency-modern-icon">{competencyIcons[category]}</div>
+                  <span className="competency-modern-title">{category}</span>
                 </div>
-                <div className="executive-card-content">
-                  <div className="flex flex-wrap gap-3">
+                <div className="competency-modern-content">
+                  <div className="competency-skills-flex">
                     {data.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="skill-badge">
+                      <div key={skillIndex} className="competency-skill-pill">
                         <img src={skill.icon} alt={skill.name} />
                         <span>{skill.name}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+                <div className="competency-accent-bar" />
               </div>
             ))}
           </div>
         </div>
       </section>
       <SectionDivider />
-      {/* Leadership Section with Carousel */}
+      {/* Leadership Section with Responsive Grid */}
       <section id="leadership" className="py-20 px-6 animate-on-scroll" style={{backgroundColor: 'var(--slate-light)'}}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16" style={{color: 'var(--navy-primary)'}}>Leadership Excellence</h2>
-          <div className="leadership-carousel">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {executiveProfile.leadership.map((item, index) => (
-              <div key={index} className="leadership-card animate-on-scroll" style={{animationDelay: `${index * 0.1}s`}}>
-                <img src={item.icon} alt={item.title} className="leadership-icon" />
+              <div key={index} className="leadership-card animate-on-scroll flex flex-col items-center text-center p-8 rounded-2xl shadow-lg bg-white" style={{animationDelay: `${index * 0.1}s`}}>
+                <img src={item.icon} alt={item.title} className="leadership-icon mb-4" style={{width: 56, height: 56}} />
                 <h3 className="text-xl font-bold mb-3" style={{color: 'var(--navy-primary)'}}>{item.title}</h3>
                 <p style={{color: 'var(--text-light)'}}>{item.description}</p>
               </div>
@@ -303,23 +343,41 @@ const HomePage = () => {
       {/* Certifications Section with Logos */}
       <section id="certifications" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16" style={{color: 'var(--navy-primary)'}}>Certifications & Education</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-4xl font-bold text-center mb-16" style={{color: 'var(--navy-primary)'}}>Certifications</h2>
+          <div className="space-y-6">
             {executiveProfile.certifications.map((cert, index) => (
-              <div key={index} className="certification-badge animate-on-scroll" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="executive-card-content">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <img src={cert.logo} alt={cert.issuer} className="cert-logo" />
-                      <div>
-                        <h3 className="font-bold" style={{color: 'var(--navy-primary)'}}>{cert.name}</h3>
-                        <p style={{color: 'var(--text-light)'}}>{cert.issuer}</p>
-                        {cert.code && <p className="text-sm font-medium" style={{color: 'var(--tech-blue)'}}>{cert.code}</p>}
-                      </div>
-                    </div>
-                    <span className="text-sm font-medium" style={{color: 'var(--text-light)'}}>{cert.year}</span>
+              <div key={index} className="education-card animate-on-scroll" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="education-info">
+                  <img src={cert.logo} alt={cert.issuer} className="education-icon" />
+                  <div className="education-details">
+                    <h3>{cert.name}</h3>
+                    <p>{cert.issuer}</p>
+                    {cert.code && <p className="text-sm font-medium" style={{color: 'var(--tech-blue)'}}>{cert.code}</p>}
                   </div>
                 </div>
+                <span className="education-year">{cert.year}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <SectionDivider />
+      {/* Education Section */}
+      <section id="education" className="py-16 px-6 bg-white animate-on-scroll">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10" style={{color: 'var(--navy-primary)'}}>Education</h2>
+          <div>
+            {executiveProfile.education.map((edu, idx) => (
+              <div key={idx} className="education-card animate-on-scroll" style={{animationDelay: `${idx * 0.1}s`}}>
+                <div className="education-info">
+                  <GraduationCap className="education-icon" />
+                  <div className="education-details">
+                    <h3>{edu.degree}</h3>
+                    <p>{edu.school}</p>
+                    <p style={{fontSize: '0.95rem'}}>{edu.location}</p>
+                  </div>
+                </div>
+                <span className="education-year">{edu.year}</span>
               </div>
             ))}
           </div>
@@ -336,12 +394,51 @@ const HomePage = () => {
           <ContactForm />
         </div>
       </section>
+      <SectionDivider />
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-20 px-6 bg-white animate-on-scroll">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12" style={{color: 'var(--navy-primary)'}}>Portfolio: Architecture Showcase</h2>
+          <div className="relative">
+            <button
+              className="portfolio-arrow left"
+              onClick={() => handlePortfolioNav(-1)}
+              disabled={portfolioIndex === 0}
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-7 h-7" />
+            </button>
+            <button
+              className="portfolio-arrow right"
+              onClick={() => handlePortfolioNav(1)}
+              disabled={portfolioIndex === totalPortfolio - 1}
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-7 h-7" />
+            </button>
+            <div className="portfolio-carousel" ref={portfolioRef} style={{scrollBehavior: 'smooth'}}>
+              {executiveProfile.portfolio.map((item, idx) => (
+                <div key={idx} className="portfolio-card animate-on-scroll" style={{animationDelay: `${idx * 0.1}s`}}>
+                  <img src={item.image} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <ul>
+                    {item.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center space-x-6 mb-6">
-            <Button variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:text-white">
+            <Button variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:text-white" as="a" href="https://www.linkedin.com/in/dattachidrawar/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4 mr-2" />
               LinkedIn
             </Button>
