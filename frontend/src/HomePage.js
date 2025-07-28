@@ -399,37 +399,49 @@ const HomePage = () => {
       <section id="portfolio" className="py-20 px-6 bg-white animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12" style={{color: 'var(--navy-primary)'}}>Portfolio: Architecture Showcase</h2>
-          <div className="relative">
+          <div className="portfolio-carousel-wrapper">
             <button
               className="portfolio-arrow left"
               onClick={() => handlePortfolioNav(-1)}
               disabled={portfolioIndex === 0}
               aria-label="Previous project"
             >
-              <ChevronLeft className="w-7 h-7" />
+              {/* Modern crisp left arrow SVG */}
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="14" fill="none" />
+                <path d="M17.5 21L11 14L17.5 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
+            <div className="portfolio-carousel-single">
+              {executiveProfile.portfolio.length > 0 && (
+                <div className="portfolio-card animate-on-scroll portfolio-card-2col">
+                  <div className="portfolio-card-imgcol">
+                    <img src={executiveProfile.portfolio[portfolioIndex].image} alt={executiveProfile.portfolio[portfolioIndex].title} />
+                  </div>
+                  <div className="portfolio-card-contentcol">
+                    <h3>{executiveProfile.portfolio[portfolioIndex].title}</h3>
+                    <p>{executiveProfile.portfolio[portfolioIndex].description}</p>
+                    <ul>
+                      {executiveProfile.portfolio[portfolioIndex].highlights.map((h, i) => (
+                        <li key={i}>{h}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
             <button
               className="portfolio-arrow right"
               onClick={() => handlePortfolioNav(1)}
               disabled={portfolioIndex === totalPortfolio - 1}
               aria-label="Next project"
             >
-              <ChevronRight className="w-7 h-7" />
+              {/* Modern crisp right arrow SVG */}
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="14" fill="none" />
+                <path d="M11 7L17.5 14L11 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
-            <div className="portfolio-carousel" ref={portfolioRef} style={{scrollBehavior: 'smooth'}}>
-              {executiveProfile.portfolio.map((item, idx) => (
-                <div key={idx} className="portfolio-card animate-on-scroll" style={{animationDelay: `${idx * 0.1}s`}}>
-                  <img src={item.image} alt={item.title} />
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <ul>
-                    {item.highlights.map((h, i) => (
-                      <li key={i}>{h}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

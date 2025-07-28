@@ -159,7 +159,7 @@ export const executiveProfile = {
   portfolio: [
     {
       title: "Cloud-Native Data Lakehouse Architecture",
-      image: "/images/portfolio/datalakehouse-arch.svg",
+      image: "/images/icons/datalakehouse-arch.png",
       description: "Designed and implemented a scalable Azure-based data lakehouse using Data Lake, Synapse, and Databricks. Enabled real-time analytics, governed data zones (Bronze/Silver/Gold), and seamless integration with enterprise systems.",
       highlights: [
         "Medallion architecture for reliability and compliance",
